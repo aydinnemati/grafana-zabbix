@@ -1,0 +1,1 @@
+See [github](https://github.com/MantasTumenas/Zabbix-template-for-Microsoft-SQL-Server/tree/master/Microsoft%20SQL%20Server)
