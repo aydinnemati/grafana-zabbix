@@ -1,0 +1,6117 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 105,
+    "iteration": 1639995445510,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 97,
+        "panels": [],
+        "title": "Zabbix Server",
+        "type": "row"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "color": "dark-red",
+                    "index": 1,
+                    "text": "OFFLINE"
+                  },
+                  "1": {
+                    "color": "dark-blue",
+                    "index": 0,
+                    "text": "ONLINE"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 12,
+          "x": 0,
+          "y": 1
+        },
+        "id": 110,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "vertical",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/Zabbix agent .*/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Zabbix Agent Status",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "Zabbix agent (.*)",
+              "renamePattern": "$1"
+            }
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 12,
+          "y": 1
+        },
+        "id": 99,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*: Configuration cache, % used/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Configuration Cache Used",
+        "type": "gauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 16,
+          "y": 1
+        },
+        "id": 100,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*: History index cache, % used/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "History Index Cache Used",
+        "type": "gauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 20,
+          "y": 1
+        },
+        "id": 101,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*: VMware cache, % used/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "VMware Cache Used",
+        "type": "gauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "opacity",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": 300000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (float)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server character"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server log"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (unsigned)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server text"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server not supported"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 15,
+          "w": 12,
+          "x": 0,
+          "y": 7
+        },
+        "id": 103,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "mean",
+              "min"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "pluginVersion": "8.0.6",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*: Number of processed .* values per second/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Number Of Processed * Values per Second",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(): Number of processed (.*) values per second",
+              "renamePattern": "$1 $2"
+            }
+          }
+        ],
+        "type": "timeseries"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "opacity",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": 300000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (float)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server character"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server log"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (unsigned)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server text"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server not supported"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Value cache hits"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Value cache misses"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Value cache operating mode"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Configuration cache, % used"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: History write cache, % used"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Value cache, % used"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: History index cache, % used"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 15,
+          "w": 12,
+          "x": 12,
+          "y": 7
+        },
+        "id": 111,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "mean",
+              "min"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "pluginVersion": "8.0.6",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*cache, % used/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "* Cache Used",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(.*)",
+              "renamePattern": "$1"
+            }
+          },
+          {
+            "id": "filterFieldsByName",
+            "options": {
+              "include": {
+                "names": [
+                  "Time",
+                  "Zabbix server: Configuration cache, % used",
+                  "Zabbix server: History index cache, % used",
+                  "Zabbix server: Value cache, % used",
+                  "Zabbix server: History write cache, % used"
+                ]
+              }
+            }
+          }
+        ],
+        "type": "timeseries"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "opacity",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (float)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server character"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server log"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (unsigned)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server text"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server not supported"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Preprocessing queue"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Queue over 10 minutes"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Queue"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: LLD queue"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 15,
+          "w": 12,
+          "x": 0,
+          "y": 22
+        },
+        "id": 104,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "mean",
+              "min"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "pluginVersion": "8.0.6",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Queues",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(): Number of processed (.*) values per second",
+              "renamePattern": "$1 $2"
+            }
+          },
+          {
+            "id": "filterFieldsByName",
+            "options": {
+              "include": {
+                "names": [
+                  "Time",
+                  "Zabbix server: Queue over 10 minutes",
+                  "Zabbix server: Queue",
+                  "Zabbix server: Preprocessing queue",
+                  "Zabbix server: LLD queue"
+                ]
+              }
+            }
+          }
+        ],
+        "type": "timeseries"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "opacity",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": 300000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (float)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server character"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server log"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (unsigned)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server text"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server not supported"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Value cache hits"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Value cache misses"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Value cache operating mode"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 15,
+          "w": 12,
+          "x": 12,
+          "y": 22
+        },
+        "id": 109,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "mean",
+              "min"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "pluginVersion": "8.0.6",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*: Value cache .*/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Number Of Processed * Values per Second",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(): Number of processed (.*) values per second",
+              "renamePattern": "$1 $2"
+            }
+          }
+        ],
+        "type": "timeseries"
+      },
+      {
+        "datasource": "Zabbix",
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "opacity",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": 300000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "short"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (float)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server character"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server log"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server numeric (unsigned)"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server text"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server not supported"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Trend write cache, % used"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Trend function cache, % unique requests"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Trend function cache, % misses"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Utilization of LLD manager internal processes, in %"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Utilization of LLD worker internal processes, in %"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Utilization of alerter internal processes, in %"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Utilization of alert manager internal processes, in %"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Zabbix server: Utilization of alert syncer internal processes, in %"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 15,
+          "w": 24,
+          "x": 0,
+          "y": 37
+        },
+        "id": 108,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "mean",
+              "min"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "pluginVersion": "8.0.6",
+        "targets": [
+          {
+            "application": {
+              "filter": ""
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*: Utilization .*/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Utilizations Of All",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(): Number of processed (.*) values per second",
+              "renamePattern": "$1 $2"
+            }
+          }
+        ],
+        "type": "timeseries"
+      },
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 52
+        },
+        "id": 90,
+        "panels": [],
+        "title": "System Overview",
+        "type": "row"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "dateTimeAsSystem"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 8,
+          "x": 0,
+          "y": 53
+        },
+        "id": 2,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "Status"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "System uptime"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Uptime",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 20,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 2,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "transparent",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ICMP response time"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ICMP loss"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ICMP ping"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 16,
+          "x": 8,
+          "y": 53
+        },
+        "id": 4,
+        "options": {
+          "legend": {
+            "calcs": [
+              "max",
+              "min",
+              "last"
+            ],
+            "displayMode": "table",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single"
+          }
+        },
+        "targets": [
+          {
+            "application": {
+              "filter": "Status"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "itServiceFilter": "$gp",
+            "item": {
+              "filter": "/ICMP.*/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "slaInterval": "1h",
+            "slaProperty": {
+              "name": "Status",
+              "property": "status"
+            },
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "ICMP Response Time",
+        "type": "timeseries"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "color": "dark-red",
+                    "index": 1,
+                    "text": "OFFLINE"
+                  },
+                  "1": {
+                    "color": "dark-blue",
+                    "index": 0,
+                    "text": "ONLINE"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 8,
+          "x": 0,
+          "y": 56
+        },
+        "id": 35,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "Status"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "ICMP ping"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Server Status",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 0,
+          "y": 59
+        },
+        "id": 6,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "value"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "Memory"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "Total memory"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Total Memory",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 4,
+          "y": 59
+        },
+        "id": 10,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "CPU"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "Number of CPUs"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Total Cpu Cores",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 0,
+          "y": 62
+        },
+        "id": 31,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "Memory"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "Available memory"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Available Memory",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 4,
+          "y": 62
+        },
+        "id": 40,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "/Interface .*/"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*Bits sent/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Interface Bits Sent",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                },
+                {
+                  "color": "super-light-blue",
+                  "value": 20
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 8,
+          "y": 62
+        },
+        "id": 53,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "Memory"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "Free swap space in %"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Free Swap Space",
+        "type": "gauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                },
+                {
+                  "color": "super-light-blue",
+                  "value": 20
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 12,
+          "y": 62
+        },
+        "id": 14,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "CPU"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "CPU idle time"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Cpu Privileged Time",
+        "type": "gauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 16,
+          "y": 62
+        },
+        "id": 91,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "CPU"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "CPU system time"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Cpu System Time",
+        "type": "gauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 20,
+          "y": 62
+        },
+        "id": 16,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": false,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "CPU"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "CPU user time"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Cpu User Time",
+        "type": "gauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 0,
+          "y": 65
+        },
+        "id": 27,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "value"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "Memory"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "Total swap space"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Total Swap Space",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 4,
+          "y": 65
+        },
+        "id": 38,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "/Interface .*/"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*Bits received/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Interface Bits Received",
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 0,
+          "y": 68
+        },
+        "id": 92,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "CPU"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/Load average.*/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Cpu Load Average",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "Load average (.*)",
+              "renamePattern": "$1"
+            }
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "color": "dark-red",
+                    "index": 1,
+                    "text": "DOWN"
+                  },
+                  "1": {
+                    "color": "dark-blue",
+                    "index": 0,
+                    "text": "UP"
+                  }
+                },
+                "type": "value"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 4,
+          "y": 68
+        },
+        "id": 95,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "/Interface .*/"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/Interface .*: Operational status/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Interfaces Operational Status",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "Load average (.*)",
+              "renamePattern": "$1"
+            }
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 4,
+          "x": 8,
+          "y": 68
+        },
+        "id": 12,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "last"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "CPU"
+            },
+            "functions": [
+              {
+                "$$hashKey": "object:986",
+                "def": {
+                  "category": "Transform",
+                  "defaultParams": [
+                    "1m",
+                    95
+                  ],
+                  "name": "percentile",
+                  "params": [
+                    {
+                      "name": "interval",
+                      "type": "string"
+                    },
+                    {
+                      "name": "percent",
+                      "options": [
+                        25,
+                        50,
+                        75,
+                        90,
+                        95,
+                        99,
+                        99.9
+                      ],
+                      "type": "float"
+                    }
+                  ]
+                },
+                "params": [
+                  "2d",
+                  95
+                ],
+                "text": "percentile(2d, 95)"
+              }
+            ],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/Load average.*/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Cpu Load Average Percentile(2days, 95)",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "Load average (.*)",
+              "renamePattern": "$1"
+            }
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 6,
+          "w": 12,
+          "x": 12,
+          "y": 68
+        },
+        "id": 49,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "auto"
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "/Filesystem.*/"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*Total space/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Disks Total Space",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(.*): Total space",
+              "renamePattern": "$1"
+            }
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                },
+                {
+                  "color": "dark-orange",
+                  "value": 85
+                },
+                {
+                  "color": "dark-red",
+                  "value": 95
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 12,
+          "x": 0,
+          "y": 74
+        },
+        "id": 51,
+        "options": {
+          "displayMode": "lcd",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "/Filesystem.*/"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*Space utilization/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Disks Used Space",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(.*): Space utilization",
+              "renamePattern": "$1"
+            }
+          }
+        ],
+        "type": "bargauge"
+      },
+      {
+        "datasource": "Zabbix",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 10
+                },
+                {
+                  "color": "super-light-blue",
+                  "value": 20
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 12,
+          "x": 12,
+          "y": 74
+        },
+        "id": 93,
+        "options": {
+          "displayMode": "lcd",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true,
+          "text": {}
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "application": {
+              "filter": "/Filesystem.*/"
+            },
+            "functions": [],
+            "group": {
+              "filter": "$gp"
+            },
+            "host": {
+              "filter": "$host"
+            },
+            "item": {
+              "filter": "/.*Free inodes in %/"
+            },
+            "options": {
+              "disableDataAlignment": false,
+              "showDisabledItems": false,
+              "skipEmptyValues": false,
+              "useZabbixValueMapping": false
+            },
+            "proxy": {
+              "filter": ""
+            },
+            "queryType": 0,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "table": {
+              "skipEmptyValues": false
+            },
+            "tags": {
+              "filter": ""
+            },
+            "trigger": {
+              "filter": ""
+            },
+            "triggers": {
+              "acknowledged": 2,
+              "count": true,
+              "minSeverity": 3
+            }
+          }
+        ],
+        "title": "Free Inodes ",
+        "transformations": [
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "(.*): Free inodes in %",
+              "renamePattern": "$1"
+            }
+          }
+        ],
+        "type": "bargauge"
+      },
+      {
+        "collapsed": true,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 81
+        },
+        "id": 55,
+        "panels": [
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU utilization"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 9,
+              "w": 12,
+              "x": 0,
+              "y": 2
+            },
+            "id": 62,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "CPU"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "CPU utilization"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "CPU Utilization",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU queue length"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Load average (15m avg)"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Load average (1m avg)"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Load average (5m avg)"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-green",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 9,
+              "w": 12,
+              "x": 12,
+              "y": 2
+            },
+            "id": 60,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "CPU"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/Load average .*/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "CPU Load Average",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "description": "user time - privileged time - DPC time - interrupt time",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU user time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU DPC time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU interrupt time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU privileged time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interrupts per second"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU guest time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU idle time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU iowait time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU steal time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-green",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Context switches per second"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-yellow",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 11,
+              "w": 12,
+              "x": 0,
+              "y": 11
+            },
+            "id": 88,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "CPU"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/.*/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Detail Metrics",
+            "transformations": [
+              {
+                "id": "filterFieldsByName",
+                "options": {
+                  "include": {
+                    "names": [
+                      "Time",
+                      "CPU guest time",
+                      "CPU idle time",
+                      "CPU iowait time",
+                      "CPU softirq time",
+                      "CPU steal time"
+                    ]
+                  }
+                }
+              }
+            ],
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "description": "user time - privileged time - DPC time - interrupt time",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                },
+                "unit": "short"
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU user time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU DPC time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU interrupt time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU privileged time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interrupts per second"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU guest time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU idle time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU iowait time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "CPU steal time"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-green",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Context switches per second"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-yellow",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 11,
+              "w": 12,
+              "x": 12,
+              "y": 11
+            },
+            "id": 94,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "CPU"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/(Context switches per second|Interrupts per second)/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Detail Metrics",
+            "transformations": [
+              {
+                "id": "filterFieldsByName",
+                "options": {
+                  "include": {
+                    "names": [
+                      "Time",
+                      "CPU guest time",
+                      "CPU iowait time",
+                      "CPU softirq time",
+                      "CPU steal time",
+                      "CPU idle time",
+                      "Interrupts per second",
+                      "Context switches per second"
+                    ]
+                  }
+                }
+              }
+            ],
+            "type": "timeseries"
+          }
+        ],
+        "title": "CPU",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 82
+        },
+        "id": 66,
+        "panels": [
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineStyle": {
+                    "fill": "solid"
+                  },
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Total memory"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Used memory"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Memory utilization"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 0,
+              "y": 3
+            },
+            "id": 63,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "Memory"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "Memory utilization"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Memory Utilization",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                },
+                "unit": "short"
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Memory page faults per second"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Total swap space"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Free swap space"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "dark-purple",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 12,
+              "y": 3
+            },
+            "id": 67,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "Memory"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "Total swap space"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              },
+              {
+                "application": {
+                  "filter": "Memory"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "hide": false,
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "Free swap space"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "B",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Free Swap Space",
+            "type": "timeseries"
+          }
+        ],
+        "title": "Memory",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 83
+        },
+        "id": 77,
+        "panels": [
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "never",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Bits received"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface ens160: Bits received"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 0,
+              "y": 4
+            },
+            "id": 75,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "/Interface.*/"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/.*Bits received/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Interfaces Bits Received",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "never",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Bits sent"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface ens160: Bits sent"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 12,
+              "y": 4
+            },
+            "id": 78,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "/Interface.*/"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/.*Bits sent/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Interfaces Bits Sent",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "never",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Inbound packets discarded"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Inbound packets with errors"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface ens160: Inbound packets with errors"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 0,
+              "y": 14
+            },
+            "id": 81,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "/Interface.*/"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/.*Inbound packets with errors/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Interfaces Inbound Packets With Errors",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "never",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Inbound packets discarded"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface ens160: Inbound packets discarded"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 12,
+              "y": 14
+            },
+            "id": 79,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "/Interface.*/"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/.*Inbound packets discarded/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Interfaces Inbound Packets Discarded",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "never",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Inbound packets discarded"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Inbound packets with errors"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Outbound packets with errors"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface ens160: Outbound packets with errors"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 0,
+              "y": 24
+            },
+            "id": 82,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "/Interface.*/"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/.*Outbound packets with errors/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Interfaces Outbound Packets With Errors",
+            "type": "timeseries"
+          },
+          {
+            "datasource": "Zabbix",
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 20,
+                  "gradientMode": "opacity",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 2,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "never",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Inbound packets discarded"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface vmxnet3 Ethernet Adapter(Ethernet0): Outbound packets discarded"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "matcher": {
+                    "id": "byName",
+                    "options": "Interface ens160: Outbound packets discarded"
+                  },
+                  "properties": [
+                    {
+                      "id": "color",
+                      "value": {
+                        "fixedColor": "super-light-blue",
+                        "mode": "fixed"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 12,
+              "x": 12,
+              "y": 24
+            },
+            "id": 83,
+            "options": {
+              "legend": {
+                "calcs": [
+                  "last",
+                  "max",
+                  "mean"
+                ],
+                "displayMode": "table",
+                "placement": "bottom"
+              },
+              "tooltip": {
+                "mode": "single"
+              }
+            },
+            "targets": [
+              {
+                "application": {
+                  "filter": "/Interface.*/"
+                },
+                "functions": [],
+                "group": {
+                  "filter": "$gp"
+                },
+                "host": {
+                  "filter": "$host"
+                },
+                "item": {
+                  "filter": "/.*Outbound packets discarded/"
+                },
+                "options": {
+                  "disableDataAlignment": false,
+                  "showDisabledItems": false,
+                  "skipEmptyValues": false,
+                  "useZabbixValueMapping": false
+                },
+                "proxy": {
+                  "filter": ""
+                },
+                "queryType": 0,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "table": {
+                  "skipEmptyValues": false
+                },
+                "tags": {
+                  "filter": ""
+                },
+                "trigger": {
+                  "filter": ""
+                },
+                "triggers": {
+                  "acknowledged": 2,
+                  "count": true,
+                  "minSeverity": 3
+                }
+              }
+            ],
+            "title": "Interfaces Outbound Packets Discarded",
+            "type": "timeseries"
+          }
+        ],
+        "title": "Network",
+        "type": "row"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 32,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "allValue": "",
+          "current": {
+            "selected": false,
+            "text": "vb servers",
+            "value": "vb servers"
+          },
+          "datasource": "Zabbix",
+          "definition": "Zabbix - group",
+          "description": null,
+          "error": null,
+          "hide": 0,
+          "includeAll": false,
+          "label": "group",
+          "multi": false,
+          "name": "gp",
+          "options": [],
+          "query": {
+            "application": "",
+            "group": "/vb servers/",
+            "host": "",
+            "item": "",
+            "queryType": "group"
+          },
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        },
+        {
+          "allValue": null,
+          "current": {
+            "selected": false,
+            "text": "Monitoring-Zabbix_agent",
+            "value": "Monitoring-Zabbix_agent"
+          },
+          "datasource": "Zabbix",
+          "definition": "Zabbix - host",
+          "description": null,
+          "error": null,
+          "hide": 0,
+          "includeAll": false,
+          "label": "host",
+          "multi": false,
+          "name": "host",
+          "options": [],
+          "query": {
+            "application": "",
+            "group": "$gp",
+            "host": "/Monitoring-Zabbix_agent/",
+            "item": "",
+            "queryType": "host"
+          },
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "zabbix servers - linux",
+    "uid": "Vpiap6K7z",
+    "version": 12
+  }

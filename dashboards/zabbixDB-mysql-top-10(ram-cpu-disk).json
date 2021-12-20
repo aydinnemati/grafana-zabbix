@@ -1,0 +1,623 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 113,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": "MySQL",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "center",
+              "displayMode": "auto",
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "utilization"
+              },
+              "properties": [
+                {
+                  "id": "custom.displayMode",
+                  "value": "lcd-gauge"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "thresholds"
+                  }
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                },
+                {
+                  "id": "min",
+                  "value": 0
+                },
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "blue",
+                        "value": null
+                      },
+                      {
+                        "color": "super-light-yellow",
+                        "value": 70
+                      },
+                      {
+                        "color": "semi-dark-red",
+                        "value": 90
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 12,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 2,
+        "options": {
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "utilization"
+            }
+          ]
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "format": "table",
+            "group": [
+              {
+                "params": [
+                  "$__interval",
+                  "none"
+                ],
+                "type": "time"
+              }
+            ],
+            "hide": false,
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  hosts.name AS \"hostname\",\n  avg(value) AS \"utilization\"\nFROM items \nJOIN hosts ON (hosts.hostid = items.hostid)\nJOIN history ON (items.itemid = history.itemid)\nWHERE\n  clock > UNIX_TIMESTAMP() - 300 \nAND\n  items.name=\"Memory utilization\"\nGROUP BY items.itemid\nORDER BY utilization desc\nLIMIT 10;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                },
+                {
+                  "params": [
+                    "avg"
+                  ],
+                  "type": "aggregate"
+                },
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "alias"
+                }
+              ]
+            ],
+            "table": "items",
+            "timeColumn": "allow_traps",
+            "timeColumnType": "int",
+            "where": [
+              {
+                "name": "$__unixEpochFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Memory",
+        "type": "table"
+      },
+      {
+        "datasource": "MySQL",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "center",
+              "displayMode": "auto",
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "utilization"
+              },
+              "properties": [
+                {
+                  "id": "custom.displayMode",
+                  "value": "lcd-gauge"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "thresholds"
+                  }
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                },
+                {
+                  "id": "min",
+                  "value": 0
+                },
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "blue",
+                        "value": null
+                      },
+                      {
+                        "color": "super-light-yellow",
+                        "value": 70
+                      },
+                      {
+                        "color": "semi-dark-red",
+                        "value": 90
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 12,
+          "w": 24,
+          "x": 0,
+          "y": 12
+        },
+        "id": 3,
+        "options": {
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "utilization"
+            }
+          ]
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "format": "table",
+            "group": [
+              {
+                "params": [
+                  "$__interval",
+                  "none"
+                ],
+                "type": "time"
+              }
+            ],
+            "hide": false,
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  hosts.name AS \"hostname\",\n  avg(value) AS \"utilization\"\nFROM items \nJOIN hosts ON (hosts.hostid = items.hostid)\nJOIN history ON (items.itemid = history.itemid)\nWHERE\n  clock > UNIX_TIMESTAMP() - 300 \nAND\n  items.name=\"CPU utilization\"\nGROUP BY items.itemid\nORDER BY utilization desc\nLIMIT 10;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                },
+                {
+                  "params": [
+                    "avg"
+                  ],
+                  "type": "aggregate"
+                },
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "alias"
+                }
+              ]
+            ],
+            "table": "items",
+            "timeColumn": "allow_traps",
+            "timeColumnType": "int",
+            "where": [
+              {
+                "name": "$__unixEpochFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "CPU",
+        "type": "table"
+      },
+      {
+        "datasource": "MySQL",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "center",
+              "displayMode": "auto",
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "utilization"
+              },
+              "properties": [
+                {
+                  "id": "custom.displayMode",
+                  "value": "lcd-gauge"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "thresholds"
+                  }
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                },
+                {
+                  "id": "min",
+                  "value": 0
+                },
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "blue",
+                        "value": null
+                      },
+                      {
+                        "color": "super-light-yellow",
+                        "value": 70
+                      },
+                      {
+                        "color": "semi-dark-red",
+                        "value": 90
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 12,
+          "w": 24,
+          "x": 0,
+          "y": 24
+        },
+        "id": 5,
+        "options": {
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "utilization"
+            }
+          ]
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "format": "table",
+            "group": [
+              {
+                "params": [
+                  "$__interval",
+                  "none"
+                ],
+                "type": "time"
+              }
+            ],
+            "hide": false,
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  hosts.name AS \"hostname\",\n  items.name,\n  avg(value) AS \"utilization\"\nFROM items \nJOIN hosts ON (hosts.hostid = items.hostid)\nJOIN history ON (items.itemid = history.itemid)\nWHERE\n  clock > UNIX_TIMESTAMP() - 300 \nAND\n  items.name = \"C:: Space utilization\"\nOR \n  items.name = \"/: Space utilization\"\nGROUP BY items.itemid\nORDER BY utilization desc\nLIMIT 20;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                },
+                {
+                  "params": [
+                    "avg"
+                  ],
+                  "type": "aggregate"
+                },
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "alias"
+                }
+              ]
+            ],
+            "table": "items",
+            "timeColumn": "allow_traps",
+            "timeColumnType": "int",
+            "where": [
+              {
+                "name": "$__unixEpochFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Disk Space ( C - / )",
+        "transformations": [],
+        "type": "table"
+      },
+      {
+        "datasource": "MySQL",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "center",
+              "displayMode": "auto",
+              "filterable": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-blue",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "utilization"
+              },
+              "properties": [
+                {
+                  "id": "custom.displayMode",
+                  "value": "lcd-gauge"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "thresholds"
+                  }
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                },
+                {
+                  "id": "min",
+                  "value": 0
+                },
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "blue",
+                        "value": null
+                      },
+                      {
+                        "color": "super-light-yellow",
+                        "value": 70
+                      },
+                      {
+                        "color": "semi-dark-red",
+                        "value": 90
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 12,
+          "w": 24,
+          "x": 0,
+          "y": 36
+        },
+        "id": 4,
+        "options": {
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "utilization"
+            }
+          ]
+        },
+        "pluginVersion": "8.2.5",
+        "targets": [
+          {
+            "format": "table",
+            "group": [
+              {
+                "params": [
+                  "$__interval",
+                  "none"
+                ],
+                "type": "time"
+              }
+            ],
+            "hide": false,
+            "metricColumn": "none",
+            "rawQuery": true,
+            "rawSql": "SELECT\n  hosts.name AS \"hostname\",\n  items.name,\n  avg(value) AS \"utilization\"\nFROM items \nJOIN hosts ON (hosts.hostid = items.hostid)\nJOIN history ON (items.itemid = history.itemid)\nWHERE\n  clock > UNIX_TIMESTAMP() - 300 \nAND\n  items.name = \"C:: Space utilization\"\nOR \n  items.name = \"D:: Space utilization\"\nOR \n  items.name = \"E:: Space utilization\"\nOR \n  items.name = \"F:: Space utilization\"\nOR \n  items.name = \"H:: Space utilization\"\nOR \n  items.name = \"G:: Space utilization\"\nOR \n  items.name = \"I:: Space utilization\"\nOR \n  items.name = \"/: Space utilization\"\nGROUP BY items.itemid\nORDER BY utilization desc\nLIMIT 10;",
+            "refId": "A",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "column"
+                },
+                {
+                  "params": [
+                    "avg"
+                  ],
+                  "type": "aggregate"
+                },
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "alias"
+                }
+              ]
+            ],
+            "table": "items",
+            "timeColumn": "allow_traps",
+            "timeColumnType": "int",
+            "where": [
+              {
+                "name": "$__unixEpochFilter",
+                "params": [],
+                "type": "macro"
+              }
+            ]
+          }
+        ],
+        "title": "Disk Space",
+        "transformations": [],
+        "type": "table"
+      }
+    ],
+    "schemaVersion": 32,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Top 10's",
+    "uid": "cCuSyNpnz",
+    "version": 10
+  }
